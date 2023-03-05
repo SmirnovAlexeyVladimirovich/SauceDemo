@@ -1,13 +1,12 @@
 package tests;
 
 import org.testng.annotations.Test;
-import pages.ProductsPage;
 
 public class ProductsTest extends BaseTest {
 
     @Test
     public void buyProduct() {
-        loginPage.open();
+        loginPage.openLoginPage();
         loginPage.login(USER, PASSWORD);
         productsPage.addToCart("Sauce Labs Backpack");
         productsPage.openCart();
@@ -16,7 +15,7 @@ public class ProductsTest extends BaseTest {
 
     @Test
     public void removeProduct() {
-        loginPage.open();
+        loginPage.openLoginPage();
         loginPage.login(USER, PASSWORD);
         productsPage.addToCart("Sauce Labs Backpack");
         productsPage.openCart();

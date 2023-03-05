@@ -9,7 +9,7 @@ public class LoginTest extends BaseTest
 
     @Test
     public void successfulLogin() {
-        loginPage.open();
+        loginPage.openLoginPage();
         loginPage.login(USER, PASSWORD);
         String title = productsPage.getTitle();
         assertEquals(title, "Products", "User isn't logged in");
@@ -18,7 +18,7 @@ public class LoginTest extends BaseTest
 
     @Test
     public void userNameIsRequired() {
-        loginPage.open();
+        loginPage.openLoginPage();
         loginPage.login("", "");
         String error = loginPage.getErrorMessage();
         assertEquals(error, "Epic sadface: Username is required", "Wrong error message");
