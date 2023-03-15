@@ -17,16 +17,8 @@ public class CheckoutPage extends BasePage {
         super(driver);
     }
 
-    public void isPageOpened1() {
+    public void isPageOpened() {
         wait.until(ExpectedConditions.textToBe(TITLE, "Checkout: Your Information"));
-    }
-
-    public void isPageOpened2() {
-        wait.until(ExpectedConditions.textToBe(TITLE, "Checkout: Overview"));
-    }
-
-    public void isPageOpened3() {
-        wait.until(ExpectedConditions.textToBe(TITLE, "Checkout: Complete!"));
     }
 
 
