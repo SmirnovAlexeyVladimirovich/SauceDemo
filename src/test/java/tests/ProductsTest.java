@@ -17,6 +17,7 @@ public class ProductsTest extends BaseTest {
     public void removeProduct() {
         loginPage.openLoginPage();
         loginPage.login(USER, PASSWORD);
+        productsPage.isPageOpened();
         productsPage.addToCart("Sauce Labs Backpack");
         productsPage.openCart();
         productsPage.removeFromCart("Sauce Labs Backpack");
