@@ -24,4 +24,20 @@ public class LoginTest extends BaseTest
         assertEquals(error, "Epic sadface: Username is required", "Wrong error message");
     }
 
+    @Test
+    public void passwordIsRequired() {
+        loginPage.openLoginPage();
+        loginPage.login("standard_user", "");
+        String error = loginPage.getErrorMessage();
+        assertEquals(error, "Epic sadface: Password is required", "Wrong error message");
+    }
+
+    @Test
+    public void lockedOutUser() {
+        loginPage.openLoginPage();
+        loginPage.login("locked_out_user", "secret_sauce");
+        String error = loginPage.getErrorMessage();
+        assertEquals(error, "Epic sadface: Sorry, this user has been locked out.",
+                "Wrong error message");
+    }
 }
