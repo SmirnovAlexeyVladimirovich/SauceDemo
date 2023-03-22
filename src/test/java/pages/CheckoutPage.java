@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class CheckoutPage extends BasePage {
 
@@ -15,6 +16,11 @@ public class CheckoutPage extends BasePage {
     public CheckoutPage (WebDriver driver) {
         super(driver);
     }
+
+    public void isPageOpened() {
+        wait.until(ExpectedConditions.textToBe(TITLE, "Checkout: Your Information"));
+    }
+
 
     public void openCheckoutStepOnePage() {
         driver.get(CHECKOUT_STEP_ONE);

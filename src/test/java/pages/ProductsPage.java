@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class ProductsPage extends BasePage {
     String addToCartXpath = "//*[text()='%s']/ancestor::*[contains(@class, 'inventory_item')]//button";
@@ -10,6 +11,11 @@ public class ProductsPage extends BasePage {
     public static final By CART = By.id("shopping_cart_container");
     public ProductsPage(WebDriver driver) {
         super(driver);
+    }
+
+    public void isPageOpened() {
+        //wait.until(ExpectedConditions.visibilityOfElementLocated(TITLE));
+        wait.until(ExpectedConditions.textToBe(TITLE, "Products"));
     }
 
     public void addToCart(String product) {
