@@ -5,6 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
+import org.testng.ITestContext;
 import org.testng.annotations.*;
 import pages.CartPage;
 import pages.CheckoutPage;
@@ -25,12 +26,13 @@ public class BaseTest {
 
     @Parameters({"browser"})
     @BeforeMethod
-    public void setUp(@Optional("chrome") String browser) {
+    public void setUp(@Optional("chrome") String browser, ITestContext testContext) {
         if (browser.equals("chrome")) {
             WebDriverManager.chromedriver().setup();
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--remote-allow-origins=*");
-            options.addArguments("--headless");
+            //options.addArguments("--headless");
+            if(System.getProperty("headless", "true").equals("true"));
             options.addArguments("--start-maximized");
             //System.setProperty("web-driver.chrome.driver", "src/test/resources/chromedriver");
             //driver = new RemoteWebDriver(options);
@@ -43,7 +45,7 @@ public class BaseTest {
             options.addArguments("--start-maximized");
             driver = new EdgeDriver();
         }
-
+        testContext.setAttribute("driver", driver);
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 

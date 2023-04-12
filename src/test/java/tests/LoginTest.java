@@ -24,6 +24,7 @@ public class LoginTest extends BaseTest
                 {"standard_user", "", "Epic sadface: Password is required"},
                 {"locked_out_user", "secret_sauce", "Epic sadface: Sorry, this user has been locked out."},
 
+
         };
     }
 

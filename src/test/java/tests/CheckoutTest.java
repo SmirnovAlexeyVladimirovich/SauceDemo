@@ -9,7 +9,7 @@ public class CheckoutTest extends BaseTest {
     public void successfulCheckout() {
         loginPage.openLoginPage();
         loginPage.login(USER, PASSWORD);
-        checkoutPage.openCheckoutStepOnePage();
+        checkoutPage.openCheckoutPage();
         checkoutPage.checkoutFillInFields("Aleksey", "Smirnov", "666666");
         checkoutPage.checkoutContinueButton();
         checkoutPage.checkoutFinishButton();
@@ -21,7 +21,7 @@ public class CheckoutTest extends BaseTest {
     public void firstNameIsRequired() {
         loginPage.openLoginPage();
         loginPage.login(USER, PASSWORD);
-        checkoutPage.openCheckoutStepOnePage();
+        checkoutPage.openCheckoutPage();
         checkoutPage.checkoutFillInFields("", "Smirnov", "666666");
         checkoutPage.checkoutContinueButton();
         String error = checkoutPage.getErrorMessage();
@@ -32,7 +32,7 @@ public class CheckoutTest extends BaseTest {
     public void lastNameIsRequired() {
         loginPage.openLoginPage();
         loginPage.login(USER, PASSWORD);
-        checkoutPage.openCheckoutStepOnePage();
+        checkoutPage.openCheckoutPage();
         checkoutPage.checkoutFillInFields("Aleksey", "", "666666");
         checkoutPage.checkoutContinueButton();
         String error = checkoutPage.getErrorMessage();
@@ -43,7 +43,7 @@ public class CheckoutTest extends BaseTest {
     public void postalCodeIsRequired() {
         loginPage.openLoginPage();
         loginPage.login(USER, PASSWORD);
-        checkoutPage.openCheckoutStepOnePage();
+        checkoutPage.openCheckoutPage();
         checkoutPage.checkoutFillInFields("Aleksey", "Smirnov", "");
         checkoutPage.checkoutContinueButton();
         String error = checkoutPage.getErrorMessage();

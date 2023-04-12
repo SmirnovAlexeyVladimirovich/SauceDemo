@@ -1,13 +1,15 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.time.Duration;
 
-abstract class BasePage {
+abstract class              BasePage {
 
     WebDriver driver;
 
@@ -25,9 +27,12 @@ abstract class BasePage {
     public String getTitle() {
         return driver.findElement(TITLE).getText();
     }
+
+    @Step("Getting error message")
     public String getErrorMessage (){
         return driver.findElement(ERROR_MESSAGE).getText();
     }
+
     public void openCart() {
         driver.get(CART);
     }

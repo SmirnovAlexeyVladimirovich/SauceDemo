@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -21,8 +22,8 @@ public class CheckoutPage extends BasePage {
         wait.until(ExpectedConditions.textToBe(TITLE, "Checkout: Your Information"));
     }
 
-
-    public void openCheckoutStepOnePage() {
+    @Step("Open checkout Page")
+    public void openCheckoutPage() {
         driver.get(CHECKOUT_STEP_ONE);
     }
 
