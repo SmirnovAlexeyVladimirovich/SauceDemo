@@ -31,7 +31,7 @@ public class BaseTest {
             WebDriverManager.chromedriver().setup();
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--remote-allow-origins=*");
-            //options.addArguments("--headless");
+            options.addArguments("--headless");
             if(System.getProperty("headless", "true").equals("true"));
             options.addArguments("--start-maximized");
             //System.setProperty("web-driver.chrome.driver", "src/test/resources/chromedriver");
